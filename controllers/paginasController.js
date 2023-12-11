@@ -30,13 +30,13 @@ const paginaTestimoniales = (req, res) => { //req - lo que enviamos : res - lo q
 
 //Muestra un viaje por su slug
 const paginaDetalleViaje = async (req, res) => {
-    const { viaje } = req.params;
+    const { slug } = req.params;
 
     try {
-        const resultado = await Viaje.findOne({ where : { slug: viaje }});
+        const viaje = await Viaje.findOne({ where : { slug: slug }});
         res.render('viaje', {
             pagina: 'Información Viaje',
-            resultado
+            viaje
         })
     } catch (error) {
         console.log(error)
