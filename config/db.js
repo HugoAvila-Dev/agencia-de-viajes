@@ -2,10 +2,8 @@ import Sequelize from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config()
 
-const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_HOST,
-    port: '3306',
-    dialect: 'mysql', //por que soporta tambien postgreSQL
+const db = new Sequelize(process.env.DATABASE_URL, {
+
     define: {
         timestamps: false //por que tiende a agregar un par de columnas cuando fue agregado
     },                  // o actualizado el registro
